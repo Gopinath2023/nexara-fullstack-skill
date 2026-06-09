@@ -1,6 +1,6 @@
 ---
-name: nexara-fullstack
-description: Designs and implements both the UI/UX and backend for a Nexara project in one pass. Applies Nexara's mandated design defaults (Tailwind CSS + shadcn/ui, accessibility baseline) for the frontend and the approved backend mode (1-6) for the server side, following all standard Nexara rules for database, auth, multi-tenancy, security, and AI routing. Use this skill whenever you need to build or review both the UI and backend together - full-stack features, end-to-end flows, or complete project build-outs after architect approval. Can also be used for either layer alone when the other already exists.
+name: "nexara-fullstack"
+description: "Designs and implements both the UI/UX and backend for a Nexara project in one pass. Applies Nexara mandated design defaults (Tailwind CSS + shadcn/ui, accessibility baseline) for the frontend and the approved backend mode (1-6) for the server side, following all standard Nexara rules for database, auth, multi-tenancy, security, and AI routing. Use this skill whenever you need to build or review both the UI and backend together - full-stack features, end-to-end flows, or complete project build-outs after architect approval. Can also be used for either layer alone when the other already exists."
 ---
 
 # Nexara Fullstack (UI/UX + Backend)
@@ -46,11 +46,11 @@ Read the output of `nexara-architect-review`: approved template (A-F), backend m
 2. **Apply standard backend rules** (apply to every mode):
    - **Database:** PostgreSQL by default. Files in R2/Supabase Storage/MinIO; metadata in PostgreSQL; signed URLs for private files.
    - **ORM:** use what the architect approved (Drizzle default; Prisma when richer tooling was chosen). One ORM per app.
-   - **Auth & permissions:** enforce in API/middleware, never UI-only. Implement user -> organization/tenant -> role -> permission -> membership -> audit log. RBAC at the API layer.
-   - **Multi-tenant:** `tenant_id` on every tenant-owned table, every query tenant-scoped, indexes on `tenant_id`, per-tenant storage prefixes/buckets.
+   - **Auth and permissions:** enforce in API/middleware, never UI-only. Implement user to organization/tenant to role to permission to membership to audit log. RBAC at the API layer.
+   - **Multi-tenant:** tenant_id on every tenant-owned table, every query tenant-scoped, indexes on tenant_id, per-tenant storage prefixes/buckets.
    - **Security baseline:** secrets in env/secret manager; input validation on every endpoint; rate limits on auth, forms, and AI endpoints; HTTPS only; HTTP-only cookies for web sessions; audit logs for sensitive actions; production DB backups; error monitoring (Sentry); dependency scanning.
    - **AI routing (hard rule):** never call an AI provider from the frontend. All AI goes through the backend via the provider-abstraction layer, logging model, prompt version, cost estimate, latency, and user/client ID, with per-client and per-user rate limits and a monthly spend cap.
-   - **Background jobs:** Cloudflare Queues/Inngest by default; BullMQ+Redis or Temporal for heavier/complex workflows.
+   - **Background jobs:** Cloudflare Queues/Inngest by default; BullMQ+Redis or Temporal for heavier workflows.
 3. **Expose endpoints/server actions** that match the data shapes the UI needs (from Step 2).
 
 ### Step 4 - Hand off to testing
@@ -72,7 +72,7 @@ List for `nexara-testing`:
 **Backend layer:**
 - Backend code in the approved mode's framework, structured per `references/backend-modes.md`.
 - Endpoint/server action list with request/response shapes and auth/tenant requirements.
-- Migrations for any schema change, with `tenant_id` + indexes where multi-tenant.
+- Migrations for any schema change, with tenant_id and indexes where multi-tenant.
 
 ---
 
