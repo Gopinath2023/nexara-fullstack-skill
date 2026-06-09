@@ -5,7 +5,7 @@
     {
       "name": "nexara-fullstack",
       "source": "./",
-      "description": "Combined nexara-uiux and nexara-backend skill for full-stack Nexara project builds."
+      "description": "Full Nexara delivery pipeline: stack selection, architect review, and fullstack UI/UX + backend implementation."
     }
   ]
 }
