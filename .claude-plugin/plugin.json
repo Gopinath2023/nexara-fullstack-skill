@@ -1,0 +1,6 @@
+{
+  "name": "nexara-fullstack",
+  "version": "1.0.0",
+  "description": "Combined nexara-uiux and nexara-backend skill in one pass. Handles UI/UX (Tailwind + shadcn/ui, accessibility, design guardrails) and backend (modes 1-6, auth, multi-tenancy, security, AI routing) for Nexara projects.",
+  "author": { "name": "Gopinath" }
+}
