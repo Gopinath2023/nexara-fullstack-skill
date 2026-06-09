@@ -1,0 +1,11 @@
+{
+  "name": "nexara-fullstack",
+  "owner": { "name": "Gopinath" },
+  "plugins": [
+    {
+      "name": "nexara-fullstack",
+      "source": "./",
+      "description": "Combined nexara-uiux and nexara-backend skill for full-stack Nexara project builds."
+    }
+  ]
+}
